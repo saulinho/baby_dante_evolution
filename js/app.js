@@ -1,5 +1,6 @@
 const dateBorn = new Date("3/29/2023");
 const dateNow = new Date();
+const dayNow = dateNow.getDate();
 
 function somar() {
     var num1 = 2;
@@ -15,6 +16,11 @@ function time_now() {
 
 function years() {
 
+}
+
+function calcularDiasVividos() {        
+    var diferenca = Math.floor((dateNow - dateBorn) / (1000 * 60 * 60 * 24));    
+    return diferenca;
 }
 
 function calcularIdade() {
@@ -45,9 +51,8 @@ function calcularIdade() {
     }
 
     document.getElementById("age").innerHTML = "_Age: " + idadeAnos + " anos, " + idadeMeses + " meses e " + idadeDias + " dias";
+    document.getElementById("shits").innerHTML = "_Shits: " + idadeDias * 3;
 }
-
-
 
 function days() {    
     var dateNow = new Date();
@@ -61,12 +66,19 @@ function diapers() {
     //document.getElementById("diapers").innerHTML = days() * 8
 }
 
+function shits() {
+    document.getElementById("shits").innerHTML = `_shits: ${calcularDiasVividos() * 3}`
+}
+
 function iniciarSoma() {
     //time_now(); // Realiza a soma inicialmente
 
     //setInterval(time_now, 3000); // Chama a função somar() a cada 3 segundos (3000 milissegundos)
     calcularIdade()
     diapers();
+    shits();
+
     setInterval(diapers, 3000);
     setInterval(calcularIdade, 3000);
+    setInterval(shits, 3000);
 }
