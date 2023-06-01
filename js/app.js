@@ -62,12 +62,20 @@ function days() {
 }
 
 function diapers() {
-    document.getElementById("diapers").innerHTML = `_diapers: ${days()}`
+    document.getElementById("diapers").innerHTML = `_diapers: ${days()*8}`
     //document.getElementById("diapers").innerHTML = days() * 8
 }
 
 function shits() {
     document.getElementById("shits").innerHTML = `_shits: ${calcularDiasVividos() * 3}`
+}
+
+function breastfeed() {
+    document.getElementById("breastfeed").innerHTML = `_breastfeed: ${calcularDiasVividos() * 6}`
+}
+
+function burp() {
+    document.getElementById("burp").innerHTML = `_burp: ${calcularDiasVividos() * 4}`
 }
 
 function iniciarSoma() {
@@ -77,8 +85,12 @@ function iniciarSoma() {
     calcularIdade()
     diapers();
     shits();
+    breastfeed();
+    burp();
 
     setInterval(diapers, 3000);
     setInterval(calcularIdade, 3000);
     setInterval(shits, 3000);
+    setInterval(breastfeed, 3000);
+    setInterval(burp, 3000);
 }
