@@ -50,8 +50,9 @@ function calcularIdade() {
         idadeMeses--;
     }
 
-    document.getElementById("age").innerHTML = "_Age: " + idadeAnos + " anos, " + idadeMeses + " meses e " + idadeDias + " dias";
-    document.getElementById("shits").innerHTML = "_Shits: " + idadeDias * 3;
+    //document.getElementById("age").innerHTML = "_Age: " + idadeAnos + " anos, " + idadeMeses + " meses e " + idadeDias + " dias";
+    document.getElementById("age_value").innerHTML = idadeAnos + " anos, " + idadeMeses + " meses e " + idadeDias + " dias";
+    //document.getElementById("shits").innerHTML = "_Shits: " + idadeDias * 3;
 }
 
 function days() {    
@@ -62,20 +63,29 @@ function days() {
 }
 
 function diapers() {
-    document.getElementById("diapers").innerHTML = `_diapers: ${days()*8}`
+    document.getElementById("diapers_value").innerHTML = days() * 8
     //document.getElementById("diapers").innerHTML = days() * 8
 }
 
 function shits() {
-    document.getElementById("shits").innerHTML = `_shits: ${calcularDiasVividos() * 3}`
+    document.getElementById("shits_value").innerHTML = calcularDiasVividos() * 3
 }
 
-function breastfeed() {
-    document.getElementById("breastfeed").innerHTML = `_breastfeed: ${calcularDiasVividos() * 6}`
+function breastfeed() {    
+    document.getElementById("breastfeed_value").innerHTML = calcularDiasVividos() * 6
 }
 
 function burp() {
-    document.getElementById("burp").innerHTML = `_burp: ${calcularDiasVividos() * 4}`
+    document.getElementById("burp_value").innerHTML = calcularDiasVividos() * 4
+}
+
+function typeWriter(elemento) {
+    console.log(elemento)
+    const textoArray = elemento.innerHTML.split('');
+    elemento.innerHTML = '';
+    textoArray.forEach((letra, i) => {
+        setTimeout(() => elemento.innerHTML += letra, 75 * i);
+    })
 }
 
 function iniciarSoma() {
@@ -83,14 +93,20 @@ function iniciarSoma() {
 
     //setInterval(time_now, 3000); // Chama a função somar() a cada 3 segundos (3000 milissegundos)
     calcularIdade()
-    diapers();
-    shits();
-    breastfeed();
+    breastfeed();    
     burp();
+    diapers();
+    shits();    
+    
+    typeWriter(document.getElementById("age_value"));
+    typeWriter(document.getElementById("breastfeed_value"));
+    typeWriter(document.getElementById("burp_value"));
+    typeWriter(document.getElementById("diapers_value"));
+    typeWriter(document.getElementById("shits_value"));
 
-    setInterval(diapers, 3000);
-    setInterval(calcularIdade, 3000);
-    setInterval(shits, 3000);
-    setInterval(breastfeed, 3000);
-    setInterval(burp, 3000);
+    // setInterval(diapers, 3000);
+    // setInterval(calcularIdade, 3000);
+    // setInterval(shits, 3000);
+    // setInterval(breastfeed, 3000);
+    // setInterval(burp, 3000);
 }

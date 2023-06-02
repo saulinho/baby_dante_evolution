@@ -2,7 +2,20 @@ body {
     background-color: black;
 }
 
-h4 {
+.span_label {
+    color: chartreuse;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.span_value {
     color: white;
     font-family: 'Courier New', Courier, monospace;  
+}
+
+.base {
+    text-align: center;
+}
+
+.photo {
+    text-align: center;
 }
